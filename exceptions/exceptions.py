@@ -6,3 +6,6 @@ class NotAnIterableObject(RSAEcryptionException):
 
 class NotATextMensage(RSAEcryptionException):
 	pass
+
+class CastError(RSAEcryptionException):
+	pass
