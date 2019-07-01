@@ -9,3 +9,9 @@ class NotATextMensage(RSAEcryptionException):
 
 class CastError(RSAEcryptionException):
 	pass
+
+class NotAKey(RSAEcryptionException):
+	pass
+
+class LoadKeyDictError(RSAEcryptionException):
+	pass
