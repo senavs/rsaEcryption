@@ -1,17 +1,17 @@
 class RSAEcryptionException(Exception):
-	pass
+    pass
 
 class NotAnIterableObject(RSAEcryptionException):
-	pass
+    pass
 
 class NotATextMensage(RSAEcryptionException):
-	pass
+    pass
 
 class CastError(RSAEcryptionException):
-	pass
+    pass
 
 class NotAKey(RSAEcryptionException):
-	pass
+    pass
 
 class LoadKeyDictError(RSAEcryptionException):
-	pass
+    pass
