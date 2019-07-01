@@ -1,4 +1,4 @@
-from ..exceptions import *
+from ..exceptions.exceptions import *
 
 
 class PublicKey(object):
