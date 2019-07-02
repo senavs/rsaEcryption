@@ -76,3 +76,57 @@ authentication = publickey.authenticate(signature, as_string=True)
 print(authentication)
 # This message was created by me (PrivateKey)
 ```
+
+**Save different keys**
+- Import KeyChain
+``` python
+from rsaEcryption import KeyChain
+```
+
+- Add keys to a KeyChain
+``` python
+kc.add('my_pair_key', pairkey)
+kc.add('my_public_key', publickey)
+kc.add('my_private_key', privatekey)
+
+print(kc)
+# {
+    'my_pair_key': PairKey(PrivateKey(11261, 19043), PublicKey(5, 19043)), 
+    'my_public_key': PublicKey(5, 19043), 
+    'my_private_key': PrivateKey(11261, 19043)
+  }
+```
+
+- Saving your keys in a file
+``` pythpn
+import json
+
+with open('my_keys.kc', 'w') as file:
+    keys = kc.save_keys()
+    keys_json = json.dumps(keys, indent=2)
+    file.write(keys_json)
+```
+
+- Loading your keys from a file
+``` python
+import json
+
+with open('my_keys.kc', 'r') as file:
+    keys_json = file.read()
+    keys = json.loads(keys_json)
+    
+new_kc = KeyChain()
+new_kc.load_keys(keys, inplace=True)
+print(new_kc.all_key)
+# dict_keys(['my_pair_key', 'my_public_key', 'my_private_key'])
+```
+
+- Removing a key from KeyChain
+``` python
+print(kc.all_key)
+# dict_keys(['my_pair_key', 'my_public_key', 'my_private_key'])
+
+kc.remove('my_pair_key')
+print(kc.all_keys)
+# dict_keys(['my_public_key', 'my_private_key'])
+```
