@@ -105,6 +105,7 @@ print(kc)
     'my_private_key': PrivateKey(11261, 19043)
   }
 ```
+###### NOTE: You can access your keys by KeyChain['your_key'].method()
 
 - Saving your keys in a file
 ``` python
