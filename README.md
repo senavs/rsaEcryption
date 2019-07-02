@@ -16,9 +16,9 @@
 &nbsp; This method decrypt the PrivateKey signature to ensure that the message you recibe it is legit. In other words, it ensures if the person who has the PrivateKey compatible with your PublicKey
 
 ## Private Key Methods
-**Decrypt**  
+- Decrypt  
 &nbsp; It takes the encrypt message and return the decrypt text. c ≡ m^d * (mod n).  
-**Sign**  
+- Sign  
 &nbsp; Method that encrypt you message. This method ensures that everyone who has your PublicKey knows that was you who sent the message.
 
 ## How to use rsaEncryption
@@ -48,21 +48,22 @@ print(publickey)
 ```
 ###### NOTE: It is optional to cast your PairKey. You can access these keys as PairKey attributes.
 
-**Encrypt**
+**Cryptosystem**
+- Encrypt
 ``` python
 encrypt_text = tuple(publickey.encrypt('Hello, World!'))
 print(encrypt_text)
 # (15531, 2199, 6656, 6656, 2141, 3844, 666, 8645, 2141, 16083, 6656, 6539, 2028)
 ```
 
-**Decrypt**
+- Decrypt
 ``` python
 decrypt_text = privatekey.decrypt(encrypt_text, as_string=True)
 print(decrypt_text)
 # Hello, World!
 ```
 
-**Sign your message**
+- Sign your message
 ``` python
 m = "This message was created by me (PrivateKey)"
 signature = tuple(privatekey.sign(m))
@@ -70,7 +71,7 @@ print(signature)
 # (11736, 9733, 13698, 11524, 2, 5108, 12300, 11524, 11524, 5742, 981, 12300, 2, 8171, 5742, 11524, 2, 18920, 11221, 12300, 5742, 18822, 12300, 1470, 2, 3033, 2070, 2, 5108, 12300, 2, 1930, 8191, 11221, 13698, 8937, 5742, 18822, 12300, 13864, 12300, 2070, 14481)
 ```
 
-**Authenticate a signature**
+- Authenticate a signature
 ``` python
 authentication = publickey.authenticate(signature, as_string=True)
 print(authentication)
