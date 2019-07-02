@@ -2,7 +2,7 @@
 &nbsp; RSA cryptosystem implemented in Python 3.6
 
 ## What is that?
-&nbsp; RSA was developed by Ron **R**ivest, Adi **S**hamir, and Leonard **A**dleman** is one of the first public key cryptosystems and is widely used for secure data transmission. The encryption key is public and it is different from the decryption key which is kept secret and is called private. 
+&nbsp; RSA was developed by Ron **R**ivest, Adi **S**hamir, and Leonard **A**dleman is one of the first public key cryptosystems and is widely used for secure data transmission. The encryption key is public and it is different from the decryption key which is kept secret and is called private. 
 
 ## What ensures the security?
 - Factorization.
