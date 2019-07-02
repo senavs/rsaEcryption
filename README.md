@@ -10,9 +10,9 @@
 - Two diffent keys.
 
 ## Public Key Methods
-**Encrypt**  
+- Encrypt  
 &nbsp; It takes the text and encrypt using E and N attributes. c ≡ m^e * (mod n).  
-**Authenticate**  
+- Authenticate  
 &nbsp; This method decrypt the PrivateKey signature to ensure that the message you recibe it is legit. In other words, it ensures if the person who has the PrivateKey compatible with your PublicKey
 
 ## Private Key Methods
