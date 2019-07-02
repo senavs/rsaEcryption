@@ -1,9 +1,8 @@
-import random
-
 from ..keys.private_key import PrivateKey
 from ..keys.public_key import PublicKey
 from ..keys.pair_key import PairKey
 from ..exceptions.exceptions import *
+from .functions import random_prime_number, mdc
 
 class Locksmith(object):
     
@@ -11,14 +10,14 @@ class Locksmith(object):
         if length < 3:
             raise ValueError("Length must be greater than 2")
         while True:
-            p = self.random_prime_number(length)
-            q = self.random_prime_number(length)
+            p = random_prime_number(length)
+            q = random_prime_number(length)
             if p != q:
                 break
         n = p * q        
         z = (p - 1) * (q - 1)
         for e in range(2, z):
-            if self.mdc(z, e) == 1:
+            if mdc(z, e) == 1:
                 break
         d = 1
         while True:
@@ -36,29 +35,3 @@ class Locksmith(object):
             return PublicKey(pair_key._e, pair_key._n)
         else:
             raise CastError(f"{to} is not an key type. Try 'public' or 'private'")
-    
-    @staticmethod
-    def prime_number(number):
-        if number == 1:
-            return False
-        i = 2
-        while i * i <= number:
-            if number % i == 0:
-                return False
-            i += 1
-        return True
-    
-    @classmethod
-    def random_prime_number(cls, length):
-        while True:
-            n = random.randint(1 * pow(10, length - 1), 9 * pow(10, length - 1))
-            if cls.prime_number(n):
-                return n
-    
-    @staticmethod
-    def mdc(a, b):
-        while b != 0:
-            rest = a % b
-            a = b
-            b = rest
-        return a
