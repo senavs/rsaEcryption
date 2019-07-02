@@ -10,10 +10,10 @@ def prime_number(number):
         i += 1
     return True
 
-def random_prime_number(cls, length):
+def random_prime_number(length):
     while True:
         n = random.randint(1 * pow(10, length - 1), 9 * pow(10, length - 1))
-        if cls.prime_number(n):
+        if prime_number(n):
             return n
 
 def mdc(a, b):
