@@ -49,6 +49,10 @@ print(publickey)
 ###### NOTE: It is optional to cast your PairKey. You can access these keys as PairKey attributes.
 
 **Cryptosystem**
+<p align="center">
+  <img src="https://www.gta.ufrj.br/grad/07_2/delio/NotesImages/Topic14NotesImage4.jpg" width=350 alt="Reliability">
+</p>  
+
 - Encrypt
 ``` python
 encrypt_text = tuple(publickey.encrypt('Hello, World!'))
@@ -62,6 +66,10 @@ decrypt_text = privatekey.decrypt(encrypt_text, as_string=True)
 print(decrypt_text)
 # Hello, World!
 ```
+
+<p align="center">
+  <img src="https://www.gta.ufrj.br/grad/07_2/delio/NotesImages/Topic14NotesImage7.jpg" width=350 alt="Authenticity">
+</p>  
 
 - Sign your message
 ``` python
