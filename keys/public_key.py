@@ -7,14 +7,27 @@ class PublicKey(object):
         self._e = key
         self._n = key_id
     
-    def authenticate(self, text):
+    def authenticate(self, text, as_string=False):
+
+        def return_not_as_string(text):
+            for data in text:
+                yield chr(pow(data, self._e) % self._n)
+
+        def return_as_string(text):
+            string = str()
+            for data in text:
+                string += chr(pow(data, self._e) % self._n)
+            return string
+
         try:
             getattr(text, '__iter__')
         except:
             raise NotAnIterableObject("text must to be an iterator")
         else:
-            for data in text:
-                yield chr(pow(data, self._e) % self._n)
+            if as_string:
+                return return_as_string(text)
+            else:
+                return return_not_as_string(text)
 
     def encrypt(self, text):
         if not isinstance(text, str):
