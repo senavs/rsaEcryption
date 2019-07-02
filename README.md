@@ -99,7 +99,7 @@ print(kc)
 ```
 
 - Saving your keys in a file
-``` pythpn
+``` python
 import json
 
 with open('my_keys.kc', 'w') as file:
